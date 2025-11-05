@@ -412,3 +412,84 @@ h1 {
     bottom: 60px;
   }
 }
+
+/* Chat bubble basics */
+.message { max-width: 720px; margin: 8px 0; padding: 10px 12px; border-radius: 14px; line-height: 1.35; }
+.message.user { align-self: flex-end; background: #4f46e5; color: white; }
+.message.assistant { align-self: flex-start; background: #e5e7eb; color: #111827; }
+
+/* Assistant sections */
+.message.assistant .section { margin: 8px 0 12px; }
+.message.assistant .section-label { font-weight: 600; margin-bottom: 4px; }
+.message.assistant .section-body { white-space: normal; }
+
+/* Container should be a flex column to align bubbles properly */
+#chatMessages { display: flex; flex-direction: column; gap: 8px; padding: 12px; flex: 1 1 auto; overflow-y: auto; max-height: 360px; }
+
+/* Chat form and input */
+.chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #e5e7eb; }
+#chatInput { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #d1d5db; }
+
+/* WayChat header */
+.wc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.wc-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+.wc-title .material-icons-outlined { color: #3bb0ff; }
+
+.wc-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 8px 12px;
+  color: #cbd5e1;
+}
+.wc-controls .ctrl { display:flex; align-items:center; gap:8px; font-size:13px; }
+.wc-controls input[type="range"] { width:120px; }
+.wc-controls input[type="number"] { width:80px; padding:4px 6px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background: rgba(0,0,0,0.12); color:#fff; }
+.wc-controls #tempValue { min-width:36px; text-align:right; color:#fff; }
+
+/* send button */
+.send-btn { background: #3bb0ff; border: none; color:#fff; width:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; }
+.send-btn:hover { background:#2699e6; }
+
+/* message label/body */
+.message-label { font-weight:600; margin-bottom:6px; font-size:13px; }
+.message-body { white-space:pre-wrap; }
+
+/* smaller chat panel sizing overrides for our panel class */
+.chatbot-panel { width: 380px; max-width: 95vw; padding: 0; overflow: hidden; }
+.chat-messages { background: rgba(0,0,0,0.12); }
+
+/* Typing indicator bubble */
+.message.assistant.typing {
+  background: #f5f7f9;
+  position: relative;
+  width: 64px;
+  text-align: center;
+}
+
+.message.assistant.typing::after {
+  content: 'Thinking';
+  display: inline-block;
+  animation: dots 1.2s infinite steps(4, end);
+}
+
+@keyframes dots {
+  0%   { content: 'Thinking'; }
+  25%  { content: 'Thinking.'; }
+  50%  { content: 'Thinking..'; }
+  75%  { content: 'Thinking...'; }
+  100% { content: 'Thinking'; }
+}

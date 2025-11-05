@@ -39,24 +39,34 @@
   </header>
 
   <!-- Chatbot Panel (hidden by default) -->
-  <div class="chatbot-panel" id="chatbotPanel">
-    <h2>
-      <span class="material-icons-outlined">smart_toy</span>
-      WayChat
-    </h2>
-    <div class="chatbot-messages" id="chatbotMessages">
-      <!-- Messages will appear here -->
+  <div id="chatbotPanel" class="chatbot-panel">
+    <header class="wc-header">
+      <div class="wc-title">
+        <span class="material-icons-outlined">chat</span>
+        <span>WayChat</span>
+      </div>
+    </header>
+
+    <div class="wc-controls">
+      <label class="ctrl">
+        Temperature
+        <input id="tempSlider" type="range" min="0" max="1" step="0.01" value="0.8">
+        <span id="tempValue">0.80</span>
+      </label>
+      <label class="ctrl">
+        Max tokens
+        <input id="maxTokens" type="number" min="1" max="4000" value="800">
+      </label>
     </div>
-    <div class="chatbot-input-group">
-      <input 
-        type="text" 
-        id="chatbotInput" 
-        placeholder="Type a message..."
-      >
-      <button class="chatbot-send-btn" id="chatbotSendBtn">
-        <span class="material-icons-outlined">send</span>
+
+    <div id="chatMessages" class="chat-messages"></div>
+
+    <form id="chatForm" class="chat-form">
+      <textarea id="chatInput" rows="2" placeholder="Write your message…" autocomplete="off"></textarea>
+      <button type="submit" class="send-btn" aria-label="Send">
+        <span class="material-icons-outlined">play_arrow</span>
       </button>
-    </div>
+    </form>
   </div>
   <!-- Chatbot Icon Button using Google Material Icons Outlined -->
   <button class="chatbot-btn" aria-label="Open chatbot" id="chatbotToggleBtn">
